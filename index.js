@@ -62,7 +62,7 @@ app.get('/:shortUrl', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
-
+//erik
 // inaktív url törlés
 cron.schedule('0 * * * *', async () => { // Minden órában fut
     try {
