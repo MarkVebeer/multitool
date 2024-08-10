@@ -4,28 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        #container {
-            text-align: center;
-        }
-    </style>
-    <div></div>
+    <!-- Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@v2.1.0/webfonts/hack/hack.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="container">
-        <h1>URL Shorten</h1>
-        <input type="text" id="urlInput" placeholder="Enter URL">
-        <button id="shortenBtn">Insert</button>
+        <h1>URL Shortener</h1>
+        <div id="inputWrapper">
+            <input type="text" id="urlInput" placeholder="Enter URL">
+            <button id="shortenBtn">Shorten</button>
+        </div>
         <p id="result"></p>
     </div>
+    <footer>
+        <p>Front end made by: <strong><a href="https://github.com/nrbrtuwu" target="_blank" class="hover-link">Bodor Norbert</a></strong></p>
+        <p>Back end made by: <strong><a href="https://markveber.hu/" target="_blank" class="hover-link">Véber-Jurassa Márk</a></strong></p>
+    </footer>
 
     <script>
         document.getElementById('shortenBtn').addEventListener('click', async () => {
