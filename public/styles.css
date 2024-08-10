@@ -1,0 +1,149 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Hack, sans-serif;
+    /* Mirage */
+    background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); 
+
+    /* Háttér színek (Ha valamit váloztatsz akkor a background fölé rakd hogy melyiket használod pls)
+
+    Mirage
+        background: -webkit-linear-gradient(to right, #3A6073, #16222A);
+        background: linear-gradient(to right, #3A6073, #16222A);
+
+    Nimvelo
+        background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);
+        background: linear-gradient(to right, #2c3e50, #2980b9);
+
+    Moonlit Asteroid
+        background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+
+    Red Sunset
+        background: -webkit-linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+        background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+
+    Lawrencium
+        background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        background: linear-gradient(to right, #0f0c29, #302b63, #24243e); 
+
+    */
+
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0 0 20px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#inputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative; /* Added relative positioning */
+    flex-direction: row;
+}
+
+#urlInput {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: calc(350px - 4px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#urlInput:focus {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: calc(350px - 4px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 40);
+    transform: scale(1.01);
+}
+
+#shortenBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+#shortenBtn:hover {
+    background-color: rgba(172, 172, 172, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 40);
+    transform: scale(1.02);
+}
+
+#result {
+    position: absolute;
+    top: calc(50% + 80px); /* Adjusted positioning */
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 10;
+    width: calc(100% - 40px);
+    display: none; /* Hide the result text by default */
+}
+
+#result:not(:empty) {
+    display: block; /* Show the result text when it's not empty */
+}
+
+footer {
+    text-align: center;
+    color: white;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.hover-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hover-link:hover {
+    text-decoration: underline;
+}
