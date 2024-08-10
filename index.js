@@ -77,7 +77,7 @@ cron.schedule('0 * * * *', async () => { // Minden órában fut
         console.error('Error removing expired URLs:', err);
     }
 });
-
+//nemerik
 // zsatar dabaz dikaz
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
