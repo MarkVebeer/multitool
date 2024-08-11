@@ -1,6 +1,6 @@
 document.getElementById('shortenBtn').addEventListener('click', async () => {
     const urlInput = document.getElementById('urlInput').value;
-    const result = document.getElementById('result');
+    const result = document.getElementById('urlResult'); // Updated ID
 
     if (!urlInput) {
         result.textContent = 'Please enter a URL';
@@ -18,7 +18,7 @@ document.getElementById('shortenBtn').addEventListener('click', async () => {
     if (response.ok) {
         const data = await response.json();
         result.textContent = `Short URL: ${data.shortUrl} copied to clipboard!`;
-        navigator.clipboard.writeText(data.shortUrl)
+        navigator.clipboard.writeText(data.shortUrl);
     } else {
         result.textContent = 'Error creating short URL';
     }
