@@ -43,7 +43,8 @@
 
             if (response.ok) {
                 const data = await response.json();
-                result.textContent = `Short URL: ${data.shortUrl}`;
+                result.textContent = `Short URL: ${data.shortUrl} copied to clipboard!`;
+                navigator.clipboard.writeText(data.shortUrl)
             } else {
                 result.textContent = 'Error creating short URL';
             }
