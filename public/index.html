@@ -10,30 +10,47 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>URL Shortener</h1>
-        <div id="urlInputWrapper">
-            <input type="text" id="urlInput" placeholder="Enter URL">
-            <button id="shortenBtn">Shorten</button>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" data-tool="url-shortener">URL Shortener</a></li>
+            <li><a href="#" data-tool="color-converter">Color Converter</a></li>
+        </ul>
+        <div class="nav-arrows">
+            <button id="prevBtn" class="nav-btn">&#9664;</button> <!-- Left arrow -->
+            <button id="nextBtn" class="nav-btn">&#9654;</button> <!-- Right arrow -->
         </div>
-        <p id="urlResult"></p>
+    </nav>
 
-        <h1>Color Converter</h1>
-        <div id="colorInputWrapper">
-            <input type="text" id="colorInput" placeholder="Enter color code (e.g., #FF5733)">
-            <select id="colorFormat">
-                <option value="hex">HEX</option>
-                <option value="rgb">RGB</option>
-                <option value="rgba">RGBA</option>
-                <option value="hsl">HSL</option>
-                <option value="hsla">HSLA</option>
-                <option value="hsv">HSV</option>
-                <option value="hsva">HSVA</option>
-                <option value="name">Name</option>
-            </select>
-            <button id="convertBtn">Convert</button>
+    <div class="container">
+        <div id="url-shortener" class="tool show">
+            <h1>URL Shortener</h1>
+            <div id="urlInputWrapper">
+                <input type="text" id="urlInput" placeholder="Enter URL">
+                <button id="shortenBtn">Shorten</button>
+            </div>
+            <p id="urlResult"></p>
         </div>
-        <p id="colorResult"></p>
+
+        <div id="color-converter" class="tool hide">
+            <h1>Color Converter</h1>
+            <div id="colorInputWrapper">
+                <input type="text" id="colorInput" placeholder="Enter color code (e.g., #FF5733)">
+                <select id="colorFormat">
+                    <option value="hex">HEX</option>
+                    <option value="rgb">RGB</option>
+                    <option value="rgba">RGBA</option>
+                    <option value="hsl">HSL</option>
+                    <option value="hsla">HSLA</option>
+                    <option value="hsv">HSV</option>
+                    <option value="hsva">HSVA</option>
+                    <option value="name">Name</option>
+                </select>
+                <button id="convertBtn">Convert</button>
+            </div>
+            <p id="colorResult"></p>
+        </div>
+
+        
     </div>
 
     <footer>
@@ -44,5 +61,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.2/tinycolor.min.js"></script>
     <script src="colorconvert.js"></script>
     <script src="script.js"></script>
+    <script src="navigation.js"></script>
 </body>
 </html>
