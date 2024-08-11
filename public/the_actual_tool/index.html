@@ -14,6 +14,7 @@
         <ul>
             <li><a href="#" data-tool="url-shortener">URL Shortener</a></li>
             <li><a href="#" data-tool="color-converter">Color Converter</a></li>
+            <li><a href="#" data-tool="ahh">ERIK</a></li>
         </ul>
         <div class="nav-arrows">
             <button id="prevBtn" class="nav-btn">&#9664;</button> <!-- Left arrow -->
@@ -33,6 +34,25 @@
 
         <div id="color-converter" class="tool hide">
             <h1>Color Converter</h1>
+            <div id="colorInputWrapper">
+                <input type="text" id="colorInput" placeholder="Enter color code (e.g., #FF5733)">
+                <select id="colorFormat">
+                    <option value="hex">HEX</option>
+                    <option value="rgb">RGB</option>
+                    <option value="rgba">RGBA</option>
+                    <option value="hsl">HSL</option>
+                    <option value="hsla">HSLA</option>
+                    <option value="hsv">HSV</option>
+                    <option value="hsva">HSVA</option>
+                    <option value="name">Name</option>
+                </select>
+                <button id="convertBtn">Convert</button>
+            </div>
+            <p id="colorResult"></p>
+        </div>
+
+        <div id="ahh" class="tool hide">
+            <h1>ERIK</h1>
             <div id="colorInputWrapper">
                 <input type="text" id="colorInput" placeholder="Enter color code (e.g., #FF5733)">
                 <select id="colorFormat">
