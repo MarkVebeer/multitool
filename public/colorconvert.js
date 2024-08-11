@@ -121,11 +121,6 @@ function toHwbString(color) {
     return `hwb(${hwb.h.toFixed(2)}, ${hwb.w.toFixed(2)}%, ${hwb.b.toFixed(2)}%)`;
 }
 
-function toNColString(color) {
-    // Example conversion, you may need a library for accurate conversion
-    return color.toName() || 'Not a named color';
-}
-
 function toCIELABString(color) {
     const lab = color.toLab();
     return `CIELAB(${lab.l.toFixed(2)}, ${lab.a.toFixed(2)}, ${lab.b.toFixed(2)})`;
