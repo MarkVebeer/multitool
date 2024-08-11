@@ -1,0 +1,98 @@
+body {
+  overflow: auto; /* Allow scrolling */
+  color: #dcd9d4;
+  background-color: #000000;
+  font-family: 'Noto Sans Mono', monospace;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 91vh;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+#hero h4 {
+  font-size: calc(3rem / 0.8);
+}
+
+#hero p {
+  font-size: calc(1.5rem / 0.8);
+  width: 125%;
+}
+
+.animated-bar {
+  width: 0;
+  height: 3px;
+  border-radius: 5px;
+  background-color: rgb(255, 182, 193); /* Initial color for the bar */
+  position: relative;
+  left: 0; /* Start the bar from the left */
+  animation: expand-bar 0.7s ease-in-out forwards, bar-rgb-glow 7s infinite alternate; /* Add RGB animation */
+  margin-top: 20px;
+}
+
+@keyframes expand-bar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 120%; /* Extend the width to 100% */
+  }
+}
+
+@keyframes bar-rgb-glow {
+  0% {
+    background-color: rgb(255, 182, 193); /* Pastel pink */
+    box-shadow: 0 0 30px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 182, 193, 0.6), 0 0 30px rgba(255, 182, 193, 0.4);
+  }
+  33% {
+    background-color: rgb(144, 238, 144); /* Pastel green */
+    box-shadow: 0 0 30px rgba(144, 238, 144, 0.8), 0 0 30px rgba(144, 238, 144, 0.6), 0 0 30px rgba(144, 238, 144, 0.4);
+  }
+  66% {
+    background-color: rgb(173, 216, 230); /* Pastel blue */
+    box-shadow: 0 0 30px rgba(173, 216, 230, 0.8), 0 0 23px rgba(173, 216, 230, 0.6), 0 0 30px rgba(173, 216, 230, 0.4);
+  }
+  100% {
+    background-color: rgb(255, 182, 193); /* Pastel pink */
+    box-shadow: 0 0 30px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 182, 193, 0.6), 0 0 30px rgba(255, 182, 193, 0.4);
+  }
+}
+
+div a, div a:hover, span {
+  font-family: 'Noto Sans Mono', monospace;
+  font-weight: bold;
+  animation: rgb-glow 7s infinite alternate;
+}
+
+/* RGB color with glow effect for span */
+@keyframes rgb-glow {
+  0% {
+    color: rgb(255, 182, 193); /* Pastel pink */
+    text-shadow: 0 0 30px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 182, 193, 0.6), 0 0 30px rgba(255, 182, 193, 0.4);
+  }
+  33% {
+    color: rgb(144, 238, 144); /* Pastel green */
+    text-shadow: 0 0 30px rgba(144, 238, 144, 0.8), 0 0 30px rgba(144, 238, 144, 0.6), 0 0 30px rgba(144, 238, 144, 0.4);
+  }
+  66% {
+    color: rgb(173, 216, 230); /* Pastel blue */
+    text-shadow: 0 0 30px rgba(173, 216, 230, 0.8), 0 0 23px rgba(173, 216, 230, 0.6), 0 0 30px rgba(173, 216, 230, 0.4);
+  }
+  100% {
+    color: rgb(255, 182, 193); /* Pastel pink */
+    text-shadow: 0 0 30px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 182, 193, 0.6), 0 0 30px rgba(255, 182, 193, 0.4);
+  }
+}
+
