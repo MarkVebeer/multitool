@@ -60,9 +60,15 @@ body {
 
 /* Navigation arrows */
 .nav-arrows {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+    pointer-events: none; /* Prevent clicks from blocking content */
 }
 
 .nav-btn {
@@ -72,6 +78,7 @@ body {
     color: white;
     cursor: pointer;
     margin: 0 10px;
+    pointer-events: auto; /* Allow clicks on buttons */
 }
 
 .nav-btn:focus {
@@ -102,31 +109,22 @@ body {
 
 /* In animations */
 .tool.in-left {
-    transform: translateX(0);
+    transform: translateX(-100%);
     opacity: 1;
     visibility: visible;
 }
 
 .tool.in-right {
-    transform: translateX(0);
+    transform: translateX(100%);
     opacity: 1;
     visibility: visible;
 }
 
-/* Ensure existing styles are compatible */
 .tool.show {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
 }
-
-.tool.hide {
-    transform: translateX(100%);
-    opacity: 0;
-    visibility: hidden;
-}
-
-
 
 h1 {
     color: white;

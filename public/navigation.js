@@ -8,8 +8,8 @@ function showTool(index, direction) {
     const nextTool = tools[index];
 
     // Reset previous tool's state
-    currentTool.classList.remove('show', 'hide', 'out-left', 'out-right');
-    nextTool.classList.remove('show', 'hide', 'in-left', 'in-right');
+    currentTool.classList.remove('show', 'out-left', 'out-right', 'in-left', 'in-right');
+    nextTool.classList.remove('show', 'in-left', 'in-right', 'out-left', 'out-right');
 
     if (direction === 'next') {
         // Animate current tool out to the left
@@ -22,32 +22,26 @@ function showTool(index, direction) {
         // Animate next tool in from the left
         nextTool.classList.add('in-left');
     }
-
-    // Ensure the next tool is visible before transitioning
     nextTool.classList.add('show');
-    nextTool.classList.remove('hide');
-
-    setTimeout(() => {
-        // Complete the transition for the current tool
-        currentTool.classList.add('hide');
-        currentTool.classList.remove('show', 'out-left', 'out-right');
-
-        // Finish the transition for the next tool
-        nextTool.classList.remove('in-right', 'in-left');
-        nextTool.classList.add('show');
-    }, 400); // Ensure this matches the CSS transition duration
 
     currentIndex = index;
 }
 
 function showNextTool() {
-    const nextIndex = (currentIndex + 1) % tools.length;
-    showTool(nextIndex, 'next');
+    const nextIndex = currentIndex + 1;
+    if (nextIndex < tools.length) {
+        showTool(nextIndex, 'next');
+    }
+    console.log(` index: ${nextIndex}`)
 }
 
 function showPrevTool() {
-    const prevIndex = (currentIndex - 1 + tools.length) % tools.length;
-    showTool(prevIndex, 'prev');
+    const prevIndex = currentIndex - 1;
+    if (prevIndex >= 0) {
+        showTool(prevIndex, 'prev');
+    }
+    console.log(` index: ${prevIndex}`)
+
 }
 
 nextBtn.addEventListener('click', showNextTool);
