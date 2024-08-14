@@ -1,0 +1,227 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Hack, sans-serif;
+    background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); 
+}
+
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffcc00;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+    padding-top: 60px; /* to make space for navbar */
+    overflow: hidden;
+}
+
+/* Existing styles... */
+
+/* Navigation arrows */
+.nav-arrows {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    pointer-events: none; /* Prevent clicks from blocking content */
+}
+
+.nav-btn {
+    font-size: 24px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin: 0 10px;
+    pointer-events: auto; /* Allow clicks on buttons */
+}
+
+.nav-btn:focus {
+    outline: none;
+}
+
+.tool {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.4s ease, opacity 0.5s ease, visibility 0.5s ease;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Out animations */
+.tool.out-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tool.out-right {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* In animations */
+.tool.in-left {
+    transform: translateX(-100%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.tool.in-right {
+    transform: translateX(100%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.tool.show {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+h1 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0 0 20px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#inputWrapper, #colorInputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    flex-direction: row;
+}
+
+#urlInput, #colorInput {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#urlInput:focus, #colorInput:focus {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 40);
+    transform: scale(1.01);
+}
+
+#shortenBtn, #convertBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+#shortenBtn:hover, #convertBtn:hover {
+    background-color: rgba(172, 172, 172, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 40);
+    transform: scale(1.02);
+}
+
+#urlResult, #colorResult {
+    position: absolute;
+    top: calc(50% + 80px);
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 10;
+    width: calc(100% - 40px);
+    display: none;
+}
+
+#urlResult:not(:empty), #colorResult:not(:empty) {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.hover-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hover-link:hover {
+    text-decoration: underline;
+}
