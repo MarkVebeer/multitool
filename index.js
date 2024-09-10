@@ -2,7 +2,9 @@ import express from 'express';
 import mysql from 'mysql2/promise';
 import { nanoid } from 'nanoid';
 import path from 'path';
+import { fileURLToPath } from 'url'; // Az __dirname támogatásához
 import cron from 'node-cron';
+import { spawn } from 'child_process'; // require helyett importálás
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +12,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+// Az __dirname helyettesítése ESM modulokban
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // MySQL
 const dbConfig = {
@@ -78,7 +84,36 @@ cron.schedule('0 * * * *', async () => { // Minden órában fut
     }
 });
 
-// zsatar dabaz dikaz
+// yt mp3 download url request
+app.post('/ytmp3', async (req, res) => {
+    const { originalUrl } = req.body;
+
+    // Python script meghívása az URL paraméterrel
+    const pythonProcess = spawn('py', ['apilopas.py', originalUrl]);
+
+    let output = '';
+
+    // Python script kimenetének kezelése
+    pythonProcess.stdout.on('data', (data) => {
+        output += data.toString();
+    });
+
+    // Hibakezelés
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`Error: ${data}`);
+    });
+
+    // Ha a folyamat véget ér
+    pythonProcess.on('close', (code) => {
+        if (code === 0) {
+            res.json({ downloadUrl: output.trim() });
+        } else {
+            res.status(500).send('Error processing the request');
+        }
+    });
+});
+
+// Szerver indítása
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
 });
