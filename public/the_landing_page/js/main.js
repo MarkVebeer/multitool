@@ -1,1 +1,0 @@
-/* Nincs itt semmi papa */

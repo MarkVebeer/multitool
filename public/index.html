@@ -4,39 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener and Color Converter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    <!-- FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
+    <!-- Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@v2.1.0/webfonts/hack/hack.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="section" id="hero">
-        <div class="container">
-            <div class="row">
-                <div class="one-half column">
-                    <div id="rotating-words" class="slider">
-                        <div class="item">
-                            <h4>hi, I'm <span>the tool</span>.</h4>
-                        </div>
-                    </div>
-                    <div id="rotating-paragraphs">
-                        <p>I'm a multi-purpose tool that is free to use, with no ads or anything—just a functional site. I was created to provide a good and safe experience, unlike the dozens of sites out there that spams ads. If you're interested, then <span><a href="#toolsection" class="hover-link">Check me out!</a></span></p>
-                    </div>
-                    <div class="animated-bar"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Navbar moved below the hero section -->
-    <div class="navbar">
+    <nav class="navbar">
         <ul>
             <li><a href="#" data-tool="url-shortener">URL Shortener</a></li>
             <li><a href="#" data-tool="color-converter">Color Converter</a></li>
@@ -46,9 +20,9 @@
             <button id="prevBtn" class="nav-btn">&#9664;</button> <!-- Left arrow -->
             <button id="nextBtn" class="nav-btn">&#9654;</button> <!-- Right arrow -->
         </div>
-    </div>
+    </nav>
 
-    <div class="toolcontainer">
+    <div class="container">
         <div id="url-shortener" class="tool show">
             <h1>URL Shortener</h1>
             <div id="urlInputWrapper">
@@ -96,7 +70,6 @@
             <p id="colorResult"></p>
         </div>
     </div>
-
 
     <footer>
         <p>Front-end made by: <strong><a href="https://github.com/nrbrtuwu" target="_blank" class="hover-link">Bodor Norbert</a></strong></p>
