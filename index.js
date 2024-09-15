@@ -1,10 +1,14 @@
 import express from 'express';
 import mysql from 'mysql2/promise';
+import axios from 'axios';
 import { nanoid } from 'nanoid';
 import path from 'path';
 import { fileURLToPath } from 'url'; // Az __dirname támogatásához
 import cron from 'node-cron';
-import { spawn } from 'child_process'; // require helyett importálás
+import { spawn } from 'child_process';
+import fs from 'fs';
+import { fileTypeFromFile } from 'file-type';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -84,34 +88,6 @@ cron.schedule('0 * * * *', async () => { // Minden órában fut
     }
 });
 
-// yt mp3 download url request
-app.post('/ytmp3', async (req, res) => {
-    const { originalUrl } = req.body;
-
-    // Python script meghívása az URL paraméterrel
-    const pythonProcess = spawn('py', ['apilopas.py', originalUrl]);
-
-    let output = '';
-
-    // Python script kimenetének kezelése
-    pythonProcess.stdout.on('data', (data) => {
-        output += data.toString();
-    });
-
-    // Hibakezelés
-    pythonProcess.stderr.on('data', (data) => {
-        console.error(`Error: ${data}`);
-    });
-
-    // Ha a folyamat véget ér
-    pythonProcess.on('close', (code) => {
-        if (code === 0) {
-            res.json({ downloadUrl: output.trim() });
-        } else {
-            res.status(500).send('Error processing the request');
-        }
-    });
-});
 
 // Szerver indítása
 app.listen(PORT, () => {
